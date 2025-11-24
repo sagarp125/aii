@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: #fff;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 { text-align: center; }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-box">
+    <h2>AI Knowledge Quiz</h2>
+
+    <form id="quizForm">
+
+        <p><b>1. What does “AI” stand for?</b></p>
+        <label><input type="radio" name="q1" value="a"> Automated Internet</label><br>
+        <label><input type="radio" name="q1" value="b"> Artificial Intelligence</label><br>
+        <label><input type="radio" name="q1" value="c"> Advanced Interface</label><br>
+
+        <p><b>2. Which type of AI is designed to perform a single specific task?</b></p>
+        <label><input type="radio" name="q2" value="a"> General AI</label><br>
+        <label><input type="radio" name="q2" value="b"> Narrow AI</label><br>
+        <label><input type="radio" name="q2" value="c"> Superintelligent AI</label><br>
+
+        <button type="button" onclick="checkAnswers()">Check Answers</button>
+
+        <div id="result"></div>
+    </form>
+</div>
+
+<script>
+function checkAnswers() {
+    const answers = {
+        q1: "b",
+        q2: "b"
+    };
+
+    let score = 0;
+    const form = document.forms['quizForm'];
+
+    for (let q in answers) {
+        if (form[q].value === answers[q]) {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerText =
+        "You scored " + score + " / 2 correct!";
+}
+</script>
+
+</body>
+</html>
